@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/constants';
 // import { BASE_URL } from '../utils/constants';
 
 const Login = () => {
@@ -39,7 +40,7 @@ const Login = () => {
 
     const handleSignUp = async () => {
         try {
-            const res = await axios.post("http://localhost:3000/signup", {
+            const res = await axios.post(BASE_URL + "/signup", {
                 firstName,
                 lastName,
                 gender,
