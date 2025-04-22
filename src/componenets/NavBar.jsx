@@ -22,7 +22,7 @@ const handleLogout = async () => {
     return (
         <div className="navbar bg-base-300 shadow-sm">
             <div className="flex-1">
-                <Link to="/" className="btn btn-ghost text-xl">CODE=-CONNECT</Link>
+                <Link to="/" className="btn btn-ghost text-xl">CODE-CONNECT</Link>
             </div>
             {user && ( <div className="flex items-center">
           <div className="dropdown dropdown-end mx-7 flex  ">
