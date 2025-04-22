@@ -12,6 +12,7 @@ const {targetUserId} = useParams();
 const  user = useSelector(store => store.user)
 const userId = user?._id ;
 
+
 const fetchChatMessages = async () => {
   const chat = await axios.get(BASE_URL+ "/chat/"+ targetUserId, {
     withCredentials: true,
@@ -49,10 +50,15 @@ socket.on("messageReceived", ({firstName,lastName, text}) =>{
 
 
 const sendMessage = () =>{
+ try {
   const socket = createSocketConnection();
+  
 
-socket.emit("sendMessage", {firstName : user.firstName, lastName : user.lastName , userId , targetUserId, text: newMessage})
-setNewMessage("")
+  socket.emit("sendMessage", {firstName : user.firstName, lastName : user.lastName , userId , targetUserId, text: newMessage})
+  setNewMessage("")
+ } catch (error) {
+  console.log("errrrrorrrrr")
+ }
 }
 
   return (
